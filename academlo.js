@@ -197,24 +197,20 @@ console.log(pruebaContains);
 ////////////////////////////////////////////////////////////////////////
 
 const squad8 = [
-    {name: 'Roger', edad:30},
+    {name: 'Roger', edad: 30},
     {name: 'Felipe', edad:21},
     {name: 'Alejandro', edad:34}
-]
+];
 
-function myPluck(array, callback) {
-    const dato = [];
-    for(let i=0; i<array.length; i++) {
-
-        dato.push(callback(array[i]));
-
+function myPluck(array, element) {
+    let date = [];
+    for(let i = 0; i < array.length; i++) {
+        date.push(array[i][element])
     }
-    return dato;
+    return date;
 }
 
-const pruebaPuck = myPluck((squad8), (encuentraNombre) => {
-    return encuentraNombre.name;
-})
+const pruebaPuck = myPluck(squad8, 'name')
 
 console.log(pruebaPuck);
 
