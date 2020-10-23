@@ -16,7 +16,7 @@ function printAges(value) {
     console.log(value);
 }
 
-myEach(ages, printAges);
+// myEach(ages, printAges);
 
 
 
@@ -48,7 +48,7 @@ function getChildren(age) {
 }
 
 const children = myFilter(ages, getChildren);
-console.log(children);
+// console.log(children);
 
 /////////////////////////////////////////////////////////////////////////
     //------------------- FIN MYFILTER ----------------------------//
@@ -79,7 +79,7 @@ function sumaAges(ages) {
 
 const agesChildren = myMap(ages, sumaAges);
 
-console.log(agesChildren);
+// console.log(agesChildren);
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -114,7 +114,7 @@ function numeroMayor(numero) {
 
 const prueba = myFind(ages, numeroMayor);
 
-console.log(prueba);
+// console.log(prueba);
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -149,7 +149,7 @@ const finIndex = myfindIndex((squad7), (index) => {
     return index.name === 'Alejandro';
 })
 
-console.log(finIndex);
+// console.log(finIndex);
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -163,7 +163,6 @@ console.log(finIndex);
 const containsPrueba = ['hola','soy','goku','adios','bye'];
 
 function myContains(array, callback) {
-    let trueFalse;
     for(let i=0; i < array.length; i++) {
 
         if(callback(array[i])){
@@ -171,19 +170,21 @@ function myContains(array, callback) {
         }
     }
 
+    return false;
+
 } 
 
 function encuentraNombre(usuario) {
-    return usuario == 'goku';
+    return usuario == 'vegeta';
 }
 
 const pruebaContains = myContains(containsPrueba, encuentraNombre)
 
-const pruebaContains1 = myContains((containsPrueba), (encuentraNombre1) => {
-    return encuentraNombre1 == 'hola';
-})
+// const pruebaContains1 = myContains((containsPrueba), (encuentraNombre1) => {
+//     return encuentraNombre1 == 'hola';
+// })
 
-console.log(pruebaContains1);
+// console.log(pruebaContains1);
 console.log(pruebaContains);
 
 
@@ -212,7 +213,7 @@ function myPluck(array, element) {
 
 const pruebaPuck = myPluck(squad8, 'name')
 
-console.log(pruebaPuck);
+// console.log(pruebaPuck);
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -227,26 +228,24 @@ console.log(pruebaPuck);
 
 const squad9 = [1, 2, 3, 4, 1, 4, 5, 1, 1]
 
-function myWithOut(array, callback) {
+function myWithout(array, data){
+    let Arraypush = [];
+    for(let i= 0; i<array.length; i++){
 
-    const dato = [];
-
-    for(let i=0; i<array.length; i++) {
-
-        if(callback(array[i])){
-            dato.push(array[i])
+        if(array[i] === data){
+            array.splice(i, 1);
         }
-
     }
-    return dato;
+    Arraypush.push(array);
+    return Arraypush;
 }
 
 
-const pruebaWithOut = myWithOut((squad9), (eliminar) => {
-    return eliminar !== 5 && eliminar !== 4 ;
-})
 
-console.log(pruebaWithOut);
+console.log(myWithout([2, 1, 2, 3], 1));
+
+
+
 
 
 /////////////////////////////////////////////////////////////////////////
